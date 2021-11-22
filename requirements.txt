@@ -1,3 +1,4 @@
-pycfg
+staticfg
+graphviz
 coverage
 pytest

@@ -1,0 +1,233 @@
+digraph clustercfg {
+	graph [label=cfg]
+	1 [label="from Board import Board
+from Player import Player
+board = Board()
+def checkIfGameHasEnded():...
+def __main__(depthChoice, teamChoice, commandChoice, moves):...
+"]
+	"1_calls" [label=Board shape=box]
+	1 -> "1_calls" [label=calls style=dashed]
+	subgraph clustercheckIfGameHasEnded {
+		graph [label=checkIfGameHasEnded]
+		3 [label="if board.isCheckmate('B'):
+"]
+		4 [label="print('The game has ended. {} has won.'.format('White'))
+return
+"]
+		"4_calls" [label=print shape=box]
+		4 -> "4_calls" [label=calls style=dashed]
+		3 -> 4 [label="board.isCheckmate('B')"]
+		5 [label="if board.isCheckmate('W'):
+"]
+		7 [label="print('The game has ended. {} has won.'.format('Black'))
+return
+"]
+		"7_calls" [label=print shape=box]
+		7 -> "7_calls" [label=calls style=dashed]
+		5 -> 7 [label="board.isCheckmate('W')"]
+		8 [label="if board.isStalemate('W') or board.isStalemate('B'):
+"]
+		10 [label="print('The game has ended in a draw.')
+return
+"]
+		"10_calls" [label=print shape=box]
+		10 -> "10_calls" [label=calls style=dashed]
+		8 -> 10 [label="board.isStalemate('W') or board.isStalemate('B')"]
+		5 -> 8 [label="(not board.isCheckmate('W'))"]
+		3 -> 5 [label="(not board.isCheckmate('B'))"]
+	}
+	subgraph cluster__main__ {
+		graph [label=__main__]
+		15 [label="depth = depthChoice.pop(0)
+"]
+		"15_calls" [label="depthChoice.pop" shape=box]
+		15 -> "15_calls" [label=calls style=dashed]
+		16 [label="while depth < 1:
+"]
+		17 [label="depth = depthChoice.pop(0)
+"]
+		"17_calls" [label="depthChoice.pop" shape=box]
+		17 -> "17_calls" [label=calls style=dashed]
+		17 -> 16 [label=""]
+		16 -> 17 [label="depth < 1"]
+		18 [label="team = teamChoice.pop(0)
+"]
+		"18_calls" [label="teamChoice.pop" shape=box]
+		18 -> "18_calls" [label=calls style=dashed]
+		19 [label="while team not in ['W', 'B']:
+"]
+		20 [label="team = teamChoice.pop(0)
+"]
+		"20_calls" [label="teamChoice.pop" shape=box]
+		20 -> "20_calls" [label=calls style=dashed]
+		20 -> 19 [label=""]
+		19 -> 20 [label="team not in ['W', 'B']"]
+		21 [label="if team == 'W':
+"]
+		22 [label="aiTeam = 'B'
+"]
+		23 [label="board.fillBoard()
+player1 = Player(team, board, False)
+player2 = Player(aiTeam, board, True)
+if team == 'W':
+"]
+		"23_calls" [label="board.fillBoard
+Player
+Player" shape=box]
+		23 -> "23_calls" [label=calls style=dashed]
+		25 [label="startingPlayer = player1
+otherPlayer = player2
+"]
+		26 [label="board.declareAsAI(aiTeam)
+board.printBoard()
+"]
+		"26_calls" [label="board.declareAsAI
+board.printBoard" shape=box]
+		26 -> "26_calls" [label=calls style=dashed]
+		28 [label="while True:
+"]
+		29 [label="command = commandChoice.pop(0)
+"]
+		"29_calls" [label="commandChoice.pop" shape=box]
+		29 -> "29_calls" [label=calls style=dashed]
+		31 [label="while command not in ['draw', 'help', 'move']:
+"]
+		32 [label="command = commandChoice.pop(0)
+"]
+		"32_calls" [label="commandChoice.pop" shape=box]
+		32 -> "32_calls" [label=calls style=dashed]
+		32 -> 31 [label=""]
+		31 -> 32 [label="command not in ['draw', 'help', 'move']"]
+		33 [label="if command == 'draw':
+"]
+		34 [label="if board.canDeclareDraw() == True:
+"]
+		49 [label="print('The game has ended in a draw.')
+"]
+		"49_calls" [label=print shape=box]
+		49 -> "49_calls" [label=calls style=dashed]
+		30 [label="return 0
+"]
+		49 -> 30 [label=""]
+		34 -> 49 [label="board.canDeclareDraw() == True"]
+		51 [label="print(
+    'The game not be declared as a draw currently. Current count without a pawn move or capture: {}. Make a move.'
+    .format(board.counter))
+"]
+		"51_calls" [label=print shape=box]
+		51 -> "51_calls" [label=calls style=dashed]
+		51 -> 28 [label=""]
+		34 -> 51 [label="(board.canDeclareDraw() != True)"]
+		33 -> 34 [label="command == 'draw'"]
+		36 [label="if command == 'help':
+"]
+		37 [label="print('The following are the list of commands: ')
+print('help: Provides a list of possible commands.')
+print(
+    'draw: Ends the game in a draw if 50 moves have been made without a pawn capture or move.'
+    )
+print('move: Allows user to make a move.')
+"]
+		"37_calls" [label="print
+print
+print
+print" shape=box]
+		37 -> "37_calls" [label=calls style=dashed]
+		37 -> 28 [label=""]
+		36 -> 37 [label="command == 'help'"]
+		39 [label="checkIfGameHasEnded()
+if startingPlayer.isAI == True:
+"]
+		"39_calls" [label=checkIfGameHasEnded shape=box]
+		39 -> "39_calls" [label=calls style=dashed]
+		40 [label="print('----- AI MOVE -----')
+startingPlayer.move(startingPlayer.getBestMove(depth))
+board.printBoard()
+checkIfGameHasEnded()
+move = moves(otherPlayer, depth)
+"]
+		"40_calls" [label="print
+startingPlayer.move
+board.printBoard
+checkIfGameHasEnded
+moves" shape=box]
+		40 -> "40_calls" [label=calls style=dashed]
+		46 [label="while move not in otherPlayer.getAllPossibleMoves():
+"]
+		47 [label="print('{} is an invalid move. Try again.'.format(move))
+move = moves(otherPlayer, depth)
+"]
+		"47_calls" [label="print
+moves" shape=box]
+		47 -> "47_calls" [label=calls style=dashed]
+		47 -> 46 [label=""]
+		46 -> 47 [label="move not in otherPlayer.getAllPossibleMoves()"]
+		48 [label="otherPlayer.move(move)
+"]
+		"48_calls" [label="otherPlayer.move" shape=box]
+		48 -> "48_calls" [label=calls style=dashed]
+		41 [label="board.printBoard()
+"]
+		"41_calls" [label="board.printBoard" shape=box]
+		41 -> "41_calls" [label=calls style=dashed]
+		41 -> 28 [label=""]
+		48 -> 41 [label=""]
+		46 -> 48 [label="(move in otherPlayer.getAllPossibleMoves())"]
+		40 -> 46 [label=""]
+		39 -> 40 [label="startingPlayer.isAI == True"]
+		42 [label="move = moves(startingPlayer, depth)
+"]
+		"42_calls" [label=moves shape=box]
+		42 -> "42_calls" [label=calls style=dashed]
+		43 [label="while move not in startingPlayer.getAllPossibleMoves():
+"]
+		44 [label="print('{} is an invalid move. Try again.'.format(move))
+move = moves(startingPlayer, depth)
+"]
+		"44_calls" [label="print
+moves" shape=box]
+		44 -> "44_calls" [label=calls style=dashed]
+		44 -> 43 [label=""]
+		43 -> 44 [label="move not in startingPlayer.getAllPossibleMoves()"]
+		45 [label="startingPlayer.move(move)
+board.printBoard()
+checkIfGameHasEnded()
+print('----- AI MOVE -----')
+otherPlayer.move(otherPlayer.getBestMove(depth))
+"]
+		"45_calls" [label="startingPlayer.move
+board.printBoard
+checkIfGameHasEnded
+print
+otherPlayer.move" shape=box]
+		45 -> "45_calls" [label=calls style=dashed]
+		45 -> 41 [label=""]
+		43 -> 45 [label="(move in startingPlayer.getAllPossibleMoves())"]
+		42 -> 43 [label=""]
+		39 -> 42 [label="(startingPlayer.isAI != True)"]
+		36 -> 39 [label="(command != 'help')"]
+		33 -> 36 [label="(command != 'draw')"]
+		31 -> 33 [label="(command in ['draw', 'help', 'move'])"]
+		29 -> 31 [label=""]
+		28 -> 29 [label=True]
+		26 -> 28 [label=""]
+		25 -> 26 [label=""]
+		23 -> 25 [label="team == 'W'"]
+		27 [label="startingPlayer = player2
+otherPlayer = player1
+"]
+		27 -> 26 [label=""]
+		23 -> 27 [label="(team != 'W')"]
+		22 -> 23 [label=""]
+		21 -> 22 [label="team == 'W'"]
+		24 [label="aiTeam = 'W'
+"]
+		24 -> 23 [label=""]
+		21 -> 24 [label="(team != 'W')"]
+		19 -> 21 [label="(team in ['W', 'B'])"]
+		18 -> 19 [label=""]
+		16 -> 18 [label="(depth >= 1)"]
+		15 -> 16 [label=""]
+	}
+}
