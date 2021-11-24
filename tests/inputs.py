@@ -7,5 +7,5 @@ def valid_moves(player,depth):
     return player.getBestMove(depth)
 
 def invalid_moves(player,depth):
-        inputs=["e2e4","e4e7"]
+        inputs=["z2z4","z4z7"]
         return inputs
