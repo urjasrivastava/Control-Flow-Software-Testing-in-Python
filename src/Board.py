@@ -214,8 +214,9 @@ class Board():
         @return Boolean: True if the move has occurred, False otherwise.
     """
     def canDeclareDraw(self) -> bool:
-
+        self.incrementCounter()
         if self.counter >= 50:
+            self.resetCounter()
             return True
         else:
             return False

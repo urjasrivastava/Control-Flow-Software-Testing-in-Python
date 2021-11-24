@@ -3,9 +3,15 @@
         @param player: The player which has to move
         @param depth: depth of min max chosen
 """
+counter = 0
 def valid_moves(player,depth):
     return player.getBestMove(depth)
 
 def invalid_moves(player,depth):
-        inputs=["z2z4","z4z7"]
-        return inputs
+        global counter
+        counter +=1
+        if counter<3:
+                input="z2z4"
+        else :
+             input = player.getBestMove(depth)   
+        return input
