@@ -85,7 +85,7 @@ def test10():
     commandchoice.extend(draws)
     assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
 
-#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 20 25 28 32 28 32 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
 def test11():
     depthchoice.extend([1])
     teamchoice.extend(['B'])
@@ -93,7 +93,7 @@ def test11():
     commandchoice.extend(draws)
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
-#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 32 28 32 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
 def test12():
     depthchoice.extend([1])
     teamchoice.extend(['W'])
@@ -101,7 +101,7 @@ def test12():
     commandchoice.extend(draws)
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
-#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 22 13 14 15 17 18 20 24 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 22 13 14 15 17 18 20 25 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
 def test13():
     depthchoice.extend([1])
     teamchoice.extend(['W'])
@@ -109,7 +109,7 @@ def test13():
     commandchoice.extend(draws)
     assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
 
-#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 22 13 14 15 17 18 20 25 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 22 13 14 15 17 18 20 24 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
 def test14():
     depthchoice.extend([1])
     teamchoice.extend(['B'])
@@ -148,3 +148,85 @@ def test18():
     commandchoice.extend(["draw","help"])
     commandchoice.extend(draws)
     assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
+
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 22 13 14 15 17 18 20 25 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test19():
+    depthchoice.extend([1])
+    teamchoice.extend(['W'])
+    commandchoice.extend(["help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 22 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test20():
+    depthchoice.extend([1])
+    teamchoice.extend(['B'])
+    commandchoice.extend(["help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+# path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 19 23 13 14 15 17 18 20 25 28 32 28 32 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test21():
+    depthchoice.extend([1])
+    teamchoice.extend(['W'])
+    commandchoice.extend(["draw","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+# path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 19 23 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test22():
+    depthchoice.extend([1])
+    teamchoice.extend(['B'])
+    commandchoice.extend(["draw","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 31 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test23():
+    depthchoice.extend([1])
+    teamchoice.extend(['W'])
+    commandchoice.extend(["move","help"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test24():
+    depthchoice.extend([1])
+    teamchoice.extend(['B'])
+    commandchoice.extend(["move","help"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 31 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test25():
+    depthchoice.extend([1])
+    teamchoice.extend(['W'])
+    commandchoice.extend(["help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
+
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 20 24 27 30 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test26():
+    depthchoice.extend([1])
+    teamchoice.extend(['B'])
+    commandchoice.extend(["help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
+
+#path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 19 23 13 14 15 17 18 20 24 27 30 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test27():
+    depthchoice.extend([1])
+    teamchoice.extend(['B'])
+    commandchoice.extend(["draw","help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
+
+#path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 19 23 13 14 15 17 18 20 25 28 31 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
+def test28():
+    depthchoice.extend([1])
+    teamchoice.extend(['W'])
+    commandchoice.extend(["draw","help","move"])
+    commandchoice.extend(draws)
+    assert(__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
+
+
