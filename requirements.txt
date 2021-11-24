@@ -2,3 +2,4 @@ staticfg
 graphviz
 coverage
 pytest
+pytest-html
