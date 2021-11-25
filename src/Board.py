@@ -159,7 +159,6 @@ class Board():
         @return Boolean: True if the move was made, False otherwise.
     """
     def makeMove(self, move: str) -> bool:
-        
         intMoves = Utility.convertStringMoveToInt(move)
         xToCall = intMoves[0]
         yToCall = intMoves[1]
@@ -214,7 +213,7 @@ class Board():
         @return Boolean: True if the move has occurred, False otherwise.
     """
     def canDeclareDraw(self) -> bool:
-
+        self.incrementCounter()
         if self.counter >= 50:
             return True
         else:
