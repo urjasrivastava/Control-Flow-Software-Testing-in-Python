@@ -58,7 +58,6 @@ def __main__(depthChoice,teamChoice,commandChoice,moves):
             command = commandChoice.pop(0)
 
         if command == "draw":
-
             if board.canDeclareDraw() == True:
                 print("The game has ended in a draw.")
                 break

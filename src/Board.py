@@ -159,7 +159,6 @@ class Board():
         @return Boolean: True if the move was made, False otherwise.
     """
     def makeMove(self, move: str) -> bool:
-        
         intMoves = Utility.convertStringMoveToInt(move)
         xToCall = intMoves[0]
         yToCall = intMoves[1]
