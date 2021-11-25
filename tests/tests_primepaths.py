@@ -2,8 +2,8 @@ import pytest
 import sys
 sys.path.insert(0, r'C:\Users\urja\Desktop\Control-Flow-Software-Testing-in-Python\src')
 from Chess import __main__
+import inputs
 from inputs import valid_moves, invalid_moves 
-
 depthchoice =[]
 teamchoice = []
 commandchoice = []
@@ -91,6 +91,7 @@ def test11():
     teamchoice.extend(['B'])
     commandchoice.extend(["move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 32 28 32 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -99,6 +100,7 @@ def test12():
     teamchoice.extend(['W'])
     commandchoice.extend(["move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 22 13 14 15 17 18 20 25 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -155,6 +157,7 @@ def test19():
     teamchoice.extend(['W'])
     commandchoice.extend(["help","move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 22 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -163,6 +166,7 @@ def test20():
     teamchoice.extend(['B'])
     commandchoice.extend(["help","move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 # path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 19 23 13 14 15 17 18 20 25 28 32 28 32 28 31 33 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -171,6 +175,7 @@ def test21():
     teamchoice.extend(['W'])
     commandchoice.extend(["draw","move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 # path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 19 23 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -179,6 +184,7 @@ def test22():
     teamchoice.extend(['B'])
     commandchoice.extend(["draw","move"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 31 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -187,6 +193,7 @@ def test23():
     teamchoice.extend(['W'])
     commandchoice.extend(["move","help"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 8 9 11 12 13 14 15 17 18 20 24 27 29 27 29 27 30 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
@@ -195,6 +202,7 @@ def test24():
     teamchoice.extend(['B'])
     commandchoice.extend(["move","help"])
     commandchoice.extend(draws)
+    inputs.counter =0
     assert(__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
 #path -> 0 1 3 4 6 7 9 10 12 13 14 15 17 18 20 25 28 31 33 13 14 15 17 18 22 13 14 15 17 19 23 13 14 15 17 19 21 26
