@@ -215,6 +215,7 @@ class Board():
     def canDeclareDraw(self) -> bool:
         self.incrementCounter()
         if self.counter >= 50:
+            self.resetCounter()
             return True
         else:
             return False
