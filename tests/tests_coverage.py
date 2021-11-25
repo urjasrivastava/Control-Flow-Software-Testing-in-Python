@@ -23,8 +23,6 @@ def test_line29():
     except Exception as exc:
        assert True
 
-
-
 def test_line57():
     commandchoice.clear()
     depthchoice =[1]
