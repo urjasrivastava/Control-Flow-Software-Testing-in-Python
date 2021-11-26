@@ -39,7 +39,6 @@ def test_line57():
 
 #tests the if condition where the game ends in draw
 def test_line61():
-    #commandchoice.clear()
     depthchoice =[1]
     teamchoice = ["B"]
     commandchoice = ['draw']
@@ -49,20 +48,17 @@ def test_line61():
     except Exception as exc:
        assert False   
 
-    #assert (__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
-
+#tests the else condition where the game does not ends in draw
 def test_line64():
-    #commandchoice.clear()
     depthchoice =[1]
     teamchoice = ["B"]
-    #commandchoice.extend(["move"]*10)
     commandchoice = ['draw']
-    #commandchoice.extend(draws)
     try:
         __main__(depthchoice,teamchoice,commandchoice,valid_moves)
     except Exception as exc:
        assert True   
 
+#tests the if else ladder where the command entered is help
 def test_line68():
     depthchoice =[1]
     teamchoice = ["B"]
@@ -70,7 +66,7 @@ def test_line68():
     commandchoice.extend(draws)
     assert (__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
 
-#this one goes inside the while loop
+#tests the move part of the code where AI is starting player and there is a while loop that checks whether there is wrong input
 def test_line86():
     depthchoice =[1]
     teamchoice = ["B"]
@@ -78,7 +74,7 @@ def test_line86():
     commandchoice.extend(draws)
     assert (__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
 
-#this one does not go in while loop
+#tests the move part of the code where where AI is starting player the there is a it does not enter the while loop because the move is valid
 def test_line85():
     depthchoice =[1]
     teamchoice = ["B"]
@@ -86,7 +82,7 @@ def test_line85():
     commandchoice.extend(draws)
     assert (__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
 
-#this one does not go in while loop
+#tests the move part of the code where where user is starting player the there is a it does not enter the while loop because the move is valid
 def test_line96():
     depthchoice =[1]
     teamchoice = ["W"]
@@ -94,7 +90,7 @@ def test_line96():
     commandchoice.extend(draws)
     assert (__main__(depthchoice,teamchoice,commandchoice,valid_moves)==0)
 
-#lets see if this goes inside the while loop
+#tests the move part of the code where user is starting player and there is a while loop that checks whether there is wrong input
 def test_line94():
     depthchoice =[1]
     teamchoice = ["W"]
@@ -102,6 +98,8 @@ def test_line94():
     commandchoice.extend(draws)
     inputs.counter=0
     assert (__main__(depthchoice,teamchoice,commandchoice,invalid_moves)==0)
+
+
 
 
 
