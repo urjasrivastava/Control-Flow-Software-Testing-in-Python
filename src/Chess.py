@@ -92,7 +92,6 @@ def __main__(depthChoice,teamChoice,commandChoice,moves):
             else:
                 #Type in a move in the format x1y1x2y2 (ex: e2e4): 
                 move = moves(startingPlayer,depth)
-
                 while move not in startingPlayer.getAllPossibleMoves():
                     print("{} is an invalid move. Try again.".format(move)) #Type in a move in the format x1y1x2y2 (ex: e2e4): 
                     move = moves(startingPlayer,depth)

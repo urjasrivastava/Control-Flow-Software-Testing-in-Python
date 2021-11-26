@@ -15,3 +15,4 @@ def invalid_moves(player,depth):
         else :
              input = player.getBestMove(depth)   
         return input
+
