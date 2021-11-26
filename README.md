@@ -7,5 +7,5 @@ Python tools used - Coverage, Pytest, Graphviz, Staticfg
 <br/>
 Prime paths testing and control flow graph generation done by Urja Srivastava
 <br/>
-Edge coverage testing done by Mitisha Agrawal 
+Edge coverage testing and Project Report Writing done by Mitisha Agrawal 
 

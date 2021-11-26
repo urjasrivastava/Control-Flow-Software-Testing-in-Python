@@ -3,3 +3,4 @@ graphviz
 coverage
 pytest
 pytest-html
+pytest-cov
